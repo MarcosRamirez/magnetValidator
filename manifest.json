@@ -1,0 +1,29 @@
+{
+    "manifest_version": 2,
+    "name": "Magnet Link Validator/corrector",
+    "version": "0.1",
+    "description": "My first extension, wroted to fix invalid magnets (lower case)",
+    "permissions": [
+	"activeTab", "tabs", "<all_urls>",
+    	"https://*/",
+	"http://*/"
+    ],
+    
+    "browser_action": {
+	"background": {
+	    "scripts": ["jquery-1.12.3.min.js", "payload.js"]
+
+        }
+     },
+
+    "content_scripts": [
+	{
+	    "matches": [
+		"http://*/*",
+		"https://*/*"
+	    ],
+	    "js": ["jquery-1.12.3.min.js", "payload.js"],
+	    "run_at": "document_end"
+	}
+    ]
+ } 
